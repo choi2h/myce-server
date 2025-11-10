@@ -1,0 +1,56 @@
+name: Deploy to Development EC2
+
+on:
+  push:
+    branches:
+      - develop
+
+
+jobs:
+  build:
+    run-on: ubuntu-latest
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@5.0.0
+
+      - name: Setup JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build with gradle
+        run: ./gradlew clean build -x test
+
+      - name: Copy build file to server
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.TARGET_HOST }}
+          username: ${{ secrets.TARGET_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          proxy-port: ${{ secrets.PROXY_PORT }}
+          proxy-host: ${{ secrets.PROXY_HOST }}
+          proxy-username: ${{ secrets.PROXY_USER_NAME }}
+          source: "build/libs/*.jar"
+          target: "/home/${{ secrets.PROXY_USER_NAME }}/app/myce/"
+
+
+      - name: Restart app via ssh
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.TARGET_HOST }}
+          username: ${{ secrets.TARGET_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          proxy-port: ${{ secrets.PROXY_PORT }}
+          proxy-host: ${{ secrets.PROXY_HOST }}
+          proxy-username: ${{ secrets.PROXY_USER_NAME }}
+          script: |
+            cd /home/${{ secrets.PROXY_USER_NAME }}/app/myce/
+            ./start.sh
+            echo "✅ Restart completed at $(date)
+            
+
+
