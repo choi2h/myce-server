@@ -24,7 +24,8 @@ public class CorsConfig {
                 "http://localhost:5173",
                 "http://localhost:8080",
                 "http://localhost:8081",
-                "https://api.myce.live"
+                "https://api.myce.live",
+                "https://d20l8j2bnb1oak.cloudfront.net"
         ));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"));
         corsConfiguration.setAllowedHeaders(Collections.singletonList("*"));

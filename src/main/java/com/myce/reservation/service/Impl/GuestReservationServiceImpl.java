@@ -1,6 +1,5 @@
-package com.myce.reservation.service.Impl;
+package com.myce.reservation.service.impl;
 
-import com.myce.auth.dto.CustomUserDetails;
 import com.myce.common.exception.CustomErrorCode;
 import com.myce.common.exception.CustomException;
 import com.myce.member.entity.Guest;
@@ -10,16 +9,10 @@ import com.myce.reservation.dto.GuestReservationRequest;
 import com.myce.reservation.entity.Reservation;
 import com.myce.reservation.repository.ReservationRepository;
 import com.myce.reservation.service.GuestReservationService;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

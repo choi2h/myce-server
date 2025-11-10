@@ -1,4 +1,4 @@
-package com.myce.reservation.service.Impl;
+package com.myce.reservation.service.impl;
 
 import com.myce.common.exception.CustomErrorCode;
 import com.myce.common.exception.CustomException;

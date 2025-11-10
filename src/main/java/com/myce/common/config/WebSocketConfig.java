@@ -40,7 +40,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                         "http://localhost:5173",
                         "http://localhost:8080",
                         "http://localhost:8081",
-                        "https://api.myce.live"
+                        "https://api.myce.live",
+                        "https://d20l8j2bnb1oak.cloudfront.net"
                 )
                 .addInterceptors(webSocketAuthInterceptor)  // JWT 인증 인터셉터
                 .withSockJS();  // SockJS 폴백 지원
