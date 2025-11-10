@@ -37,6 +37,7 @@ jobs:
           proxy_key: "${{ secrets.SSH_PRIVATE_KEY }}"
           source: "build/libs/*.jar"
           target: "/home/${{ secrets.TARGET_USER_NAME }}/app/myce/"
+          strip_components: 2
 
 
       - name: Restart app via ssh
