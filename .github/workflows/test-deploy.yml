@@ -51,9 +51,9 @@ jobs:
           proxy_username: ${{ secrets.PROXY_USER_NAME }}
           proxy_key: "${{ secrets.SSH_PRIVATE_KEY }}"
           script: |
-            cd /home/${{ secrets.TARGET_USER_NAME }}/app/myce/
-            ./start.sh
-            echo "✅ Restart completed at $(date)
+            cd /home/${{ secrets.TARGET_USER_NAME }}/app/myce/  && \
+            ./start.sh && \
+            echo "✅ Restart completed at $(date)"
             
 
 
