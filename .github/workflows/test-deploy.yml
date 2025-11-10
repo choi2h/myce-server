@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout develop
-        uses: actions/checkout@5.0.0
+        uses: actions/checkout@v5.0.0
 
       - name: Setup JDK
         uses: actions/setup-java@v3
@@ -31,9 +31,9 @@ jobs:
           host: ${{ secrets.TARGET_HOST }}
           username: ${{ secrets.TARGET_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          proxy-port: ${{ secrets.PROXY_PORT }}
-          proxy-host: ${{ secrets.PROXY_HOST }}
-          proxy-username: ${{ secrets.PROXY_USER_NAME }}
+          proxy_port: ${{ secrets.PROXY_PORT }}
+          proxy_host: ${{ secrets.PROXY_HOST }}
+          proxy_username: ${{ secrets.PROXY_USER_NAME }}
           source: "build/libs/*.jar"
           target: "/home/${{ secrets.PROXY_USER_NAME }}/app/myce/"
 
@@ -44,9 +44,9 @@ jobs:
           host: ${{ secrets.TARGET_HOST }}
           username: ${{ secrets.TARGET_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
-          proxy-port: ${{ secrets.PROXY_PORT }}
-          proxy-host: ${{ secrets.PROXY_HOST }}
-          proxy-username: ${{ secrets.PROXY_USER_NAME }}
+          proxy_port: ${{ secrets.PROXY_PORT }}
+          proxy_host: ${{ secrets.PROXY_HOST }}
+          proxy_username: ${{ secrets.PROXY_USER_NAME }}
           script: |
             cd /home/${{ secrets.PROXY_USER_NAME }}/app/myce/
             ./start.sh
