@@ -3,6 +3,8 @@ server:
   forward-headers-strategy: native
 
 logging:
+  file:
+    name: /app/myce/logs/myce.log
   level:
     root: info
     com.myce: debug
