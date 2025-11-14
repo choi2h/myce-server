@@ -30,6 +30,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Checkout develop
+        uses: actions/checkout@v5.0.0
+
       - name: Login to Docker
         uses: docker/login-action@v1
         with:
