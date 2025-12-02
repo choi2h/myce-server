@@ -43,6 +43,6 @@ jobs:
 
       - name: Trigger deploy ansible
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh api -X POST /repos/choi2h/myce-infra/dispatches -f event_type='deploy-myce'
