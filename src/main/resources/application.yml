@@ -77,7 +77,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: none # in development (auto table create/modify)
+      ddl-auto: update # in development (auto table create/modify)
       # ddl-auto: none  # in operation (manual sql management)
     show-sql: true
 
